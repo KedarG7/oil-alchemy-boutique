@@ -39,7 +39,7 @@ const CustomCursor = () => {
         animate={{
           x: mousePosition.x - 12,
           y: mousePosition.y - 12,
-          scale: isHovering ? 2 : 1,
+          scale: 2 : 1,
         }}
         transition={{
           type: "spring",
