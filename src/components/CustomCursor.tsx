@@ -45,7 +45,7 @@ const CustomCursor = () => {
           type: "spring",
           stiffness: 500,
           damping: 30,
-          delay: 0.3,
+          delay: 0.1,
         }}
       />
       <motion.div
