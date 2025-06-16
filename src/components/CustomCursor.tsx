@@ -6,8 +6,11 @@ const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
-  // Hide the default mouse pointer
-  document.body.style.cursor = 'none'; const updateMousePosition = (e: MouseEvent) => {
+  useEffect(() => {
+    // Hide the default mouse pointer
+    document.body.style.cursor = 'none';
+
+    const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -15,7 +18,7 @@ const CustomCursor = () => {
     const handleMouseLeave = () => setIsHovering(false);
 
     window.addEventListener('mousemove', updateMousePosition);
-    
+
     // Add hover listeners to interactive elements
     const interactiveElements = document.querySelectorAll('button, a, input, textarea, select');
     interactiveElements.forEach(el => {
@@ -29,12 +32,29 @@ const CustomCursor = () => {
         el.removeEventListener('mouseenter', handleMouseEnter);
         el.removeEventListener('mouseleave', handleMouseLeave);
       });
+      document.body.style.cursor = '';
     };
   }, []);
 
   return (
-    <>
-     
+      <motion.div
+        className="fixed top-0 left-0 w-6 h-6 bg-gradient-to-r from-violet-400 to-blue-400 rounded-full pointer-events-none z-[9999] mix-blend-screen"
+        animate={{
+          x: mousePosition.x - 12,
+          y: mousePosition.y - 12,
+          scale: isHovering ? 2 : 1,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 800,
+          damping: 35,
+        }}
+      />
+          stiffness: 800,
+          damping: 35,
+        }}
+      />
+>>>>>>> 6029ea802d02ff804b34d51a8d879240a832eb73
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999]"
         animate={{
