@@ -18,7 +18,7 @@ const CustomCursor = () => {
     const handleMouseLeave = () => setIsHovering(false);
 
     window.addEventListener('mousemove', updateMousePosition);
-
+    
     // Add hover listeners to interactive elements
     const interactiveElements = document.querySelectorAll('button, a, input, textarea, select');
     interactiveElements.forEach(el => {
@@ -32,11 +32,11 @@ const CustomCursor = () => {
         el.removeEventListener('mouseenter', handleMouseEnter);
         el.removeEventListener('mouseleave', handleMouseLeave);
       });
-      document.body.style.cursor = '';
     };
   }, []);
 
   return (
+    <>
       <motion.div
         className="fixed top-0 left-0 w-6 h-6 bg-gradient-to-r from-violet-400 to-blue-400 rounded-full pointer-events-none z-[9999] mix-blend-screen"
         animate={{
@@ -46,15 +46,11 @@ const CustomCursor = () => {
         }}
         transition={{
           type: "spring",
-          stiffness: 800,
-          damping: 35,
+          stiffness: 500,
+          damping: 30,
+          delay: 0.1,
         }}
       />
-          stiffness: 800,
-          damping: 35,
-        }}
-      />
->>>>>>> 6029ea802d02ff804b34d51a8d879240a832eb73
       <motion.div
         className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999]"
         animate={{
