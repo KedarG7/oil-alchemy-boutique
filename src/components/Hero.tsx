@@ -1,6 +1,6 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -88,14 +88,6 @@ const Hero = () => {
           >
             Learn More
           </motion.button>
-        </motion.div>
-
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ArrowDown className="w-6 h-6 text-white/60" />
         </motion.div>
       </div>
     </section>
